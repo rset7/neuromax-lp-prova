@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>NEUROMAX — O esforço você já tem. Falta ele virar nota.</title>
-  <meta name="description" content="Preparação para Medicina construída a partir de como a memória realmente funciona: flashcards FSRS-6, Neurobank com estatística da turma, Neuropédia conectada e um painel que é o seu coach diário." />
+  <title>NEUROMAX — O sistema de preparação para Medicina mais completo que você já viu.</title>
+  <meta name="description" content="O sistema de preparação para Medicina mais completo que você já viu: questões que são micro-aulas, flashcards com cada detalhe já cobrado em vestibular e uma enciclopédia que abre dentro de cada questão — tudo no algoritmo de repetição espaçada mais avançado do mundo." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter+Tight:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -61,7 +61,7 @@
     .hero{padding:72px 0 60px;text-align:center;overflow:hidden}
     .hero .glow{position:absolute;inset:0;z-index:-2;background:radial-gradient(ellipse 60% 50% at 50% 18%,rgba(212,165,116,.20),transparent 70%)}
     .hero .grid-bg{position:absolute;inset:0;z-index:-1;opacity:.05;background-image:linear-gradient(var(--ink) 1px,transparent 1px),linear-gradient(90deg,var(--ink) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 28%,#000 20%,transparent 80%);mask-image:radial-gradient(ellipse 70% 60% at 50% 28%,#000 20%,transparent 80%)}
-    .hero h1{margin:22px auto;max-width:15ch}
+    .hero h1{margin:22px auto;max-width:20ch}
     .hero .lead{max-width:60ch;margin:0 auto 32px}
     .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
     .hero-sub{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--ink-soft);text-transform:uppercase}
@@ -257,6 +257,75 @@
     .wa{position:fixed;right:22px;bottom:22px;z-index:60;background:#25d366;color:#06351c;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;box-shadow:0 12px 32px -10px rgba(0,0,0,.6)}
     .wa:hover{transform:translateY(-2px)}.wa svg{width:28px;height:28px}
     .preview-flag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);text-align:center;padding:8px;background:var(--surface-lo);border-bottom:1px solid var(--border-soft)}
+  
+    /* ===== DEMO INTERATIVO (experimente uma questão) ===== */
+    .dq{background:linear-gradient(180deg,var(--surface-hi),var(--surface));border:1px solid var(--border-hi);border-radius:18px;padding:clamp(18px,3vw,28px);box-shadow:0 30px 70px -40px rgba(0,0,0,.8);max-width:760px;margin:0 auto}
+    .dq-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+    .dq-tags{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .dq-subj{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;color:var(--primary);border:1px solid rgba(212,165,116,.4);background:var(--accent-soft)}
+    .dq-src,.dq-prog{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+    .dq-prog b{color:var(--ink)}
+    .dq-stem{font-size:16px;line-height:1.6;color:var(--ink);margin-bottom:18px}
+    .dq-stem p{color:var(--ink);margin:0 0 8px}
+    .dq-alts{display:grid;gap:9px}
+    .dq-opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;padding:13px 15px;border-radius:11px;border:1px solid var(--border-hi);background:var(--surface-lo);color:var(--ink-dim);font-family:var(--sans);font-size:14.5px;line-height:1.45;cursor:pointer;transition:.14s}
+    .dq-opt:hover:not(:disabled){border-color:var(--primary);color:var(--ink)}
+    .dq-opt .dq-key{flex:0 0 24px;width:24px;height:24px;border-radius:7px;border:1px solid var(--border-hi);display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:600;margin-top:1px}
+    .dq-opt.sel{border-color:var(--primary);color:var(--ink);background:var(--accent-soft)}
+    .dq-opt.sel .dq-key{background:var(--primary);color:#1a1410;border-color:var(--primary)}
+    .dq-opt.ok{border-color:var(--success);background:rgba(127,174,138,.10);color:var(--ink)}
+    .dq-opt.ok .dq-key{background:var(--success);color:#06250f;border-color:var(--success)}
+    .dq-opt.bad{border-color:rgba(207,125,107,.6);background:rgba(207,125,107,.08);color:var(--ink)}
+    .dq-opt.bad .dq-key{background:var(--danger);color:#2a0f0a;border-color:var(--danger)}
+    .dq-opt.dim{opacity:.5}
+    .dq-opt:disabled{cursor:default}
+    .dq-actions{display:flex;gap:10px;align-items:center;margin-top:16px;flex-wrap:wrap}
+    .dq-submit{font-family:var(--sans);font-weight:600;font-size:14px;padding:11px 22px;border-radius:999px;border:none;background:var(--primary);color:#1a1410;cursor:pointer;transition:.16s}
+    .dq-submit:hover:not(:disabled){background:var(--primary-2)}
+    .dq-submit:disabled{opacity:.4;cursor:not-allowed}
+    .dq-nav{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;background:none;border:1px solid var(--border-hi);color:var(--ink-dim);padding:9px 14px;border-radius:999px;cursor:pointer;transition:.14s}
+    .dq-nav:hover:not(:disabled){background:var(--surface-hi);color:var(--ink)}
+    .dq-nav:disabled{opacity:.3;cursor:not-allowed}
+    .dq-next{margin-left:auto}
+    .dq-reveal{margin-top:20px;border-top:1px solid var(--border);padding-top:18px}
+    .dq-verdict{font-family:var(--sans);font-weight:600;font-size:16px;margin-bottom:6px;display:flex;align-items:center;gap:9px}
+    .dq-verdict.win{color:var(--success)} .dq-verdict.lose{color:var(--danger)}
+    .dq-lbl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin:18px 0 8px}
+    .dq-cmt{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--ink-dim);padding:11px 0;border-bottom:1px solid var(--border-soft)}
+    .dq-cmt .dq-k{width:23px;height:23px;border-radius:6px;flex:0 0 23px;display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:600;margin-top:1px}
+    .dq-cmt .dq-k.ok{background:var(--success);color:#06250f}
+    .dq-cmt .dq-k.no{border:1px solid var(--border-hi);color:var(--ink-soft)}
+    .dq-cmt .dq-k.bad{background:var(--danger);color:#2a0f0a}
+    .dq-cmt b{color:var(--ink)} .dq-cmt p{margin:0;color:inherit}
+    .dq-res-toggle{margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);background:none;border:none;cursor:pointer;padding:0}
+    .dq-res{margin-top:12px;font-size:14px;line-height:1.6;color:var(--ink-dim)}
+    .dq-res p{margin:0 0 10px;color:var(--ink-dim)}
+    .dq-res .dq-h{font-family:var(--sans);font-weight:600;color:var(--ink);font-size:14px;margin:14px 0 6px}
+    .dq-res .dq-ul{margin:0 0 10px;padding-left:18px} .dq-res .dq-ul li{margin:4px 0}
+    .dq-tbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:12.5px}
+    .dq-tbl th,.dq-tbl td{border:1px solid var(--border);padding:6px 9px;text-align:left;color:var(--ink-dim)}
+    .dq-tbl th{color:var(--ink);font-weight:600;background:var(--surface-lo)}
+    .dq-take{margin-top:18px;border-left:2px solid var(--primary);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:13px 16px}
+    .dq-take .dq-take-l{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:5px}
+    .dq-take p{font-size:14px;color:var(--ink);line-height:1.5;margin:0}
+  
+    /* ===== DEMO NEUROPÉDIA (hover/clique nos termos) ===== */
+    .np2{position:relative;background:linear-gradient(180deg,var(--surface-hi),var(--surface));border:1px solid var(--border-hi);border-radius:18px;padding:clamp(20px,3vw,30px);box-shadow:0 30px 70px -40px rgba(0,0,0,.8);max-width:720px;margin:0 auto}
+    .np2-bar{display:flex;align-items:center;gap:6px;margin-bottom:18px}
+    .np2-bar .dot{width:9px;height:9px;border-radius:50%;background:rgba(255,250,235,.16)}
+    .np2-bar .tag{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+    .np2-text{font-size:17px;line-height:2;color:var(--ink-dim)}
+    .np2-term{color:var(--primary);border:none;border-bottom:1px dashed rgba(212,165,116,.6);background:none;cursor:pointer;font:inherit;padding:1px 2px}
+    .np2-term:hover,.np2-term.active{color:var(--primary-2);border-bottom-style:solid;background:var(--accent-soft);border-radius:4px 4px 0 0}
+    .np2-pop{position:absolute;z-index:5;width:300px;max-width:calc(100% - 32px);background:var(--surface-lo);border:1px solid var(--border-hi);border-radius:12px;padding:15px 16px;box-shadow:0 18px 50px -20px rgba(0,0,0,.85)}
+    .np2-pop::before{content:"";position:absolute;top:-7px;left:var(--ax,40px);width:12px;height:12px;background:var(--surface-lo);border-left:1px solid var(--border-hi);border-top:1px solid var(--border-hi);transform:rotate(45deg)}
+    .np2-pop .h{font-family:var(--sans);font-weight:600;font-size:14px;color:var(--ink);margin-bottom:7px;display:flex;align-items:center;gap:8px}
+    .np2-pop .h svg{width:15px;height:15px;color:var(--primary);flex:0 0 15px}
+    .np2-pop .bd{font-size:13px;line-height:1.6;color:var(--ink-dim)}
+    .np2-link{color:var(--primary);border:none;border-bottom:1px dashed rgba(212,165,116,.6);background:none;cursor:pointer;font:inherit;padding:0}
+    .np2-link:hover{color:var(--primary-2);border-bottom-style:solid}
+    .np2-more{font-family:var(--mono);font-size:11px;color:var(--primary);margin-top:11px;letter-spacing:.06em;display:inline-block}
+    .np2-x{position:absolute;top:7px;right:10px;color:var(--ink-soft);cursor:pointer;font-size:17px;line-height:1;background:none;border:none}
   </style>
 </head>
 <body>
@@ -280,230 +349,53 @@
     <div class="glow"></div><div class="grid-bg"></div>
     <div class="wrap">
       <div class="eyebrow">Preparação para Medicina · ENEM, FUVEST, UNESP e demais bancas</div>
-      <h1 class="display-xl">O esforço você já tem. Falta ele <span class="ital">virar nota</span>.</h1>
-      <p class="lead">Quem estuda muito e empaca não tem um problema de disciplina — tem um problema de método. A NEUROMAX não é mais um app de questões: é um organismo de estudo onde teoria, revisão e prática conversam entre si, construído a partir de como a memória realmente funciona. É assim que o que você estuda hoje ainda está na sua cabeça no dia da prova — e como se passa dos <b style="color:var(--ink)">800 pontos</b> no ENEM, rumo à Medicina.</p>
+      <h1 class="display-xl">O sistema de preparação para Medicina <span class="ital">mais completo</span> que você já viu.</h1>
+      <p class="lead">Questões que são micro-aulas e voltam até você dominar. Flashcards com cada detalhe que já caiu em vestibular. Uma enciclopédia que abre dentro de cada questão. Tudo integrado ao <b style="color:var(--ink)">algoritmo de repetição espaçada mais avançado do mundo</b>.</p>
       <div class="hero-ctas">
-        <a href="#principio" class="btn btn-primary">Entender o método →</a>
+        <a href="#flashcards" class="btn btn-primary">Entender o método →</a>
         <a href="#oferta" class="btn btn-ghost">Ver tudo que está incluído</a>
       </div>
       <div class="hero-sub">Acesso imediato · Tudo num lugar só · Garantia de 7 dias</div>
     </div>
   </section>
 
-  <div class="strip">
-    <div class="strip-inner">
-      <span class="lbl">Bibliografia padrão-ouro · Bancas-alvo</span>
-      <span>INEP · FUVEST · VUNESP · Campbell · Feltre · Halliday · Sadava · Atkins</span>
-    </div>
-  </div>
-
-  <!-- OVERVIEW DE MÓDULOS -->
-  <section class="sec" style="padding-top:clamp(48px,7vw,80px);padding-bottom:0">
-    <div class="wrap">
-      <div class="sec-head" style="margin-bottom:32px">
-        <div class="eyebrow dim">Um acesso, oito frentes</div>
-        <h2 class="display-md">Tudo que você recebe — antes mesmo do preço.</h2>
-      </div>
-      <div class="mods">
-        <div class="mod"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg></div><h4>Flashcards FSRS-6</h4><p>Repetição espaçada de última geração.</p></div>
-        <div class="mod"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>Neurobank</h4><p>Questões reais que medem como você acertou.</p></div>
-        <div class="mod"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><h4>Neuropédia</h4><p>A enciclopédia dentro de cada card e questão.</p></div>
-        <div class="mod"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V6a2 2 0 0 1 2-2h12v15"/><path d="M6 17h12v3H6a2 2 0 0 1 0-3z"/></svg></div><h4>Cursos em trilha</h4><p>Do básico ao avançado, com níveis D→A.</p></div>
-        <div class="mod"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><h4>Codex</h4><p>A biblioteca de referência curada.</p></div>
-        <div class="mod"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div><h4>Painel diário</h4><p>O coach que diz o que estudar hoje.</p></div>
-        <div class="mod"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3"/></svg></div><h4>Consultoria Setúbal</h4><p>Mentoria individual em prontuário.</p></div>
-        <div class="mod"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div><h4>Núcleo Acubbens</h4><p>Motivação para sustentar a maratona.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIAGNÓSTICO -->
-  <section class="sec">
-    <div class="wrap grid2">
-      <div>
-        <div class="eyebrow dim">O diagnóstico</div>
-        <h2 class="display-lg" style="margin-top:14px">A sensação de que você sabe é justamente o que <span class="ital">te engana</span>.</h2>
-      </div>
-      <div class="stack-p">
-        <p>Você lê o capítulo, grifa, relê. Cada releitura deixa a matéria mais familiar — e a familiaridade <i>parece</i> conhecimento. Não é.</p>
-        <p>A prova nunca te pergunta se o assunto parece conhecido. Ela te pede para <b style="color:var(--ink)">lembrar</b> a informação certa, <b style="color:var(--ink)">conectá-la</b> a outra e aplicar tudo sob pressão, meses depois de ter estudado. São habilidades diferentes — e o estudo tradicional treina a primeira enquanto a prova cobra a segunda.</p>
-        <p>É por isso que dá para estudar muito e travar nos 75%. Não é falta de inteligência nem de empenho. É um desencontro: você está ficando ótimo em <i>reconhecer</i> a matéria, e a prova mede o quanto você consegue <i>recuperá-la</i>.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRINCÍPIO + CHART -->
-  <section class="sec divider" id="principio">
-    <div class="wrap narrow">
-      <div class="eyebrow dim">O princípio</div>
-      <h2 class="display-lg" style="margin:14px 0">A memória obedece a uma curva. Dá para <span class="ital">trabalhar a favor dela</span>.</h2>
-      <div class="stack-p" style="max-width:70ch;margin-bottom:36px">
-        <p>Em 1885, Hermann Ebbinghaus mediu a velocidade com que esquecemos. A descoberta é incômoda: sem revisão, a maior parte do que você aprende some em poucos dias — é a linha vermelha despencando abaixo.</p>
-        <p>Mas existe o outro lado da mesma curva. Toda vez que você <i>resgata</i> uma informação no intervalo certo, a retenção volta ao topo e passa a cair mais devagar — a linha verde. Resgate, espere, resgate de novo: a cada ciclo a memória fica mais estável, até o conteúdo virar parte de você.</p>
-        <p>Se a memória funciona assim, um bom sistema deveria ser construído <b style="color:var(--ink)">em cima</b> dessa curva — não empurrar PDF e torcer. Foi exatamente assim que a NEUROMAX foi feita. O resto desta página é mostrar como — e o quanto.</p>
-      </div>
-
-      <div class="chart">
-        <div class="legend">
-          <span><i style="background:var(--danger)"></i> Sem revisão</span>
-          <span><i style="background:var(--success)"></i> Com revisão espaçada</span>
-          <span><i style="width:9px;height:9px;border-radius:50%;background:var(--primary)"></i> Resgate ativo</span>
-        </div>
-        <svg id="ebb" viewBox="0 0 880 360" width="100%" role="img" aria-label="Curva do esquecimento de Ebbinghaus comparada com revisão espaçada"></svg>
-        <p style="margin-top:10px;font-size:14px;max-width:74ch">Sem manutenção, a retenção cai para perto de <b style="color:var(--danger)">3%</b> em um mês. Com os resgates no tempo certo, ela se mantém acima de <b style="color:var(--success)">60%</b> — e cada revisão seguinte fica mais espaçada. O FSRS-6 calcula esses intervalos para você, card a card.</p>
-      </div>
+  <!-- DOBRA · FLASHCARDS -->
+  <section class="sec divider" id="flashcards">
+    <div class="wrap narrow" style="text-align:center">
+      <div class="eyebrow">01 · Flashcards</div>
+      <h2 class="display-lg" style="margin:14px auto;max-width:22ch">Se caiu em algum vestibular, está <span class="ital">em nosso baralho</span>.</h2>
+      <p class="lead" style="max-width:62ch;margin:0 auto">Os nossos flashcards são construídos para cobrir minuciosamente cada detalhe cobrado no ENEM e nos demais vestibulares.</p>
     </div>
   </section>
 
   <!-- SISTEMA -->
   <section class="sec divider" id="sistema">
     <div class="wrap">
-      <div class="sec-head">
-        <div class="eyebrow">Como funciona, por dentro</div>
-        <h2 class="display-lg">Cinco peças, encaixadas para uma coisa só: você <span class="ital">lembrar na hora da prova</span>.</h2>
-        <p class="lead">Não é um amontoado de ferramentas. Cada peça resolve uma parte do mesmo problema — forçar o resgate certo, no tempo certo, com o conhecimento conectado.</p>
-      </div>
-
-      <!-- 01 FLASHCARDS -->
-      <div class="feat">
-        <div class="feat-text">
-          <div class="num">01 · Flashcards</div>
-          <h3>Cada card volta no dia exato em que você ia esquecê-lo.</h3>
-          <p class="body">A curva tem um ponto ideal de revisão: tarde o bastante para dar trabalho lembrar — é o esforço que fixa —, cedo o bastante para você não ter perdido. Calcular esse dia, carta por carta, é inviável na mão. Por isso quem faz é um algoritmo — e o seu importa: a maioria dos apps (e o Anki padrão) ainda roda o SM-2, de 1987.</p>
-          <ul class="dentro">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>FSRS-6</b>, o algoritmo de repetição espaçada mais avançado que existe, calibrado para manter cerca de <b>90% de retenção</b></span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Você se avalia em quatro níveis e cada botão <b>já mostra quando o card volta</b> — veja ao lado</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Lacunas (cloze), dicas, imagens e <b>fórmulas matemáticas (KaTeX)</b> — da Citologia à Termodinâmica</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Selo <b>High Yield</b> para o que mais cai, post-its, grifo salvo e "enterrar até amanhã"</span></li>
-          </ul>
-          <p class="concl">Você para de decidir o que revisar. A ciência decide — e te mostra a conta antes.</p>
-        </div>
-        <div class="feat-vis">
-          <div class="mock">
-            <div class="mock-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="chip hy">🔥 High Yield</span></div>
-            <div class="fc-meta">BIOLOGIA › GENÉTICA MOLECULAR</div>
-            <div class="fc-q">A enzima que adiciona nucleotídeos à fita nascente durante a replicação do DNA é a <span class="cloze">DNA polimerase</span>.</div>
-            <div class="fc-rate">
-              <div class="r r-err">Errei<small>5 min</small></div>
-              <div class="r r-hard">Difícil<small>30 min</small></div>
-              <div class="r r-ok">Normal<small>1 d</small></div>
-              <div class="r r-easy">Fácil<small>4 d</small></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 02 NEUROBANK -->
-      <div class="feat rev">
-        <div class="feat-text">
-          <div class="num">02 · Neurobank</div>
-          <h3>Acertar no chute não é saber. Aqui o sistema entende a diferença.</h3>
-          <p class="body">Um acerto não diz nada se foi sorte. Por isso, depois de responder, você não marca só "certo ou errado" — marca o <b style="color:var(--ink)">motivo</b>. E é esse sinal honesto que decide quando a questão volta: o que você chutou retorna logo; o que domina de verdade some do radar.</p>
-          <ul class="dentro">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Questões de <b>provas reais</b> — ENEM, FUVEST, UNESP e outras bancas</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Estatística da turma:</b> quantos colegas caíram em cada alternativa — as pegadinhas ficam à vista</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Dificuldade <b>calibrada pelo desempenho real</b> (fácil = +70% de acerto coletivo)</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Comentário <b>alternativa por alternativa</b>, filtros por tema/ano/banca e <b>modo prova antiga</b> cronometrado</span></li>
-          </ul>
-          <p class="concl">Você revisa exatamente as questões que ainda não domina — não as que teve sorte.</p>
-        </div>
-        <div class="feat-vis">
-          <div class="mock">
-            <div class="mock-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="chip diff">Difícil · 38% de acerto</span></div>
-            <div class="qb-stem">(FUVEST) Na fase luteínica do ciclo menstrual, o hormônio predominante é o(a):</div>
-            <div class="qb-alts">
-              <div class="alt"><span class="key">A</span><span class="bar"><i style="width:14%"></i></span><span class="pct">14%</span></div>
-              <div class="alt trap"><span class="key">B</span><span class="bar"><i style="width:40%"></i></span><span class="pct">40%</span></div>
-              <div class="alt correct"><span class="key">C</span><span class="bar"><i style="width:38%"></i></span><span class="pct">38%</span></div>
-              <div class="alt"><span class="key">D</span><span class="bar"><i style="width:8%"></i></span><span class="pct">8%</span></div>
-            </div>
-            <div class="qb-meta">
-              <div class="mb g">Acertei c/ segurança<small>+ espaça</small></div>
-              <div class="mb a">Acertei no chute<small>volta logo</small></div>
-              <div class="mb a">Errei por distração<small>volta logo</small></div>
-              <div class="mb r">Errei por conceito<small>volta hoje</small></div>
-            </div>
-          </div>
-        </div>
+      <!-- 02 · BANCO DE QUESTÕES (intro) -->
+      <div class="sec-head" style="text-align:center;max-width:none;margin:0 auto 36px">
+        <div class="eyebrow">02 · Banco de questões</div>
+        <h2 class="display-lg" style="margin-top:14px">Você nunca mais erra a <span class="ital">mesma questão</span>.</h2>
+        <p class="lead" style="max-width:66ch;margin:16px auto 0">Cada questão é uma micro-aula que mostra exatamente onde seu raciocínio falhou — e volta, na hora certa de revisar, até você dominar de vez.</p>
       </div>
 
       <!-- 02b · QUESTÃO RESOLVIDA / MICRO-AULA -->
-      <div class="microaula">
-        <div class="num">02 · a resolução</div>
-        <h3>Cada questão é uma micro-aula feita para você não errar de novo.</h3>
-        <p class="lead2">Errar e ver só "a resposta é a C" não ensina nada — você repete o mesmo erro no mês seguinte. Por isso, no Neurobank, toda questão vem com a resolução completa: ela disseca <b style="color:var(--ink)">alternativa por alternativa</b> — por que a certa está certa, por que a pegadinha engana e onde exatamente o seu raciocínio desviou. E fecha com uma <b style="color:var(--ink)">take-home</b>: o conceito-chave que transforma aquele erro num acerto definitivo.</p>
+      <p class="lead2" style="text-align:center;max-width:66ch;margin:0 auto 26px">Não acredite na promessa — teste. Responda as questões reais abaixo e veja, no instante em que marca, tudo o que aparece: o porquê de cada alternativa, a resolução e a take-home que transforma o erro em acerto definitivo.</p>
+      <div class="dq" id="nx-demo"></div>
+      <p class="concl" style="max-width:760px;margin:26px auto 0">Cada erro entra como questão e sai como conceito dominado — um de cada vez.</p>
 
-        <div class="mock mock-res">
-          <div class="mock-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="chip diff">Difícil · 38% de acerto</span></div>
-          <div class="qb-stem" style="font-size:16px;margin-bottom:18px">(FUVEST) Na fase luteínica do ciclo menstrual, o hormônio que predomina e prepara o endométrio para a implantação é o(a):</div>
-          <div class="qb-res" style="border-top:none;margin-top:0;padding-top:0">
-            <div class="res-eye">Resolução · microaula</div>
-            <div class="res-alt"><span class="k no">A</span><span><b>FSH.</b> Predomina no início da fase folicular, estimulando o crescimento dos folículos; despenca após a ovulação. Fora de fase.</span></div>
-            <div class="res-alt"><span class="k trap">B</span><span><b>Estrógeno — a pegadinha (40% marcaram aqui).</b> É o hormônio da fase folicular, não da luteínica. Quem erra trocou as duas fases do ciclo.</span></div>
-            <div class="res-alt"><span class="k ok">C</span><span><b>Progesterona — gabarito.</b> O corpo lúteo, formado após a ovulação, a secreta; ela domina a fase luteínica e prepara o endométrio para a implantação.</span></div>
-            <div class="res-alt"><span class="k no">D</span><span><b>LH.</b> Dispara um pico que desencadeia a ovulação — é o gatilho, não o protagonista da fase seguinte.</span></div>
-            <div class="takehome">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12c1 1 1 2 1 4M12 2a7 7 0 0 1 4 12c-1 1-1 2-1 4"/></svg>
-              <div>
-                <div class="l">Take-home</div>
-                <p>Fase folicular → estrógeno. Fase luteínica → progesterona. O pico de LH é só o gatilho da ovulação, no meio do caminho.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="concl">Não é um banco de questões. É um banco de erros corrigidos — um de cada vez.</p>
-      </div>
+    </div>
+  </section>
 
-      <!-- 03 NEUROPÉDIA -->
-      <div class="feat">
-        <div class="feat-text">
-          <div class="num">03 · Neuropédia</div>
-          <h3>Para lembrar sob pressão, o conhecimento não pode viver em ilhas.</h3>
-          <p class="body">Na prova você quase nunca só "recita o fato X": precisa ligar X a Y dentro de um enunciado que disfarça os dois. Se o seu conhecimento está guardado como cartas soltas, é isso que você resgata. A Neuropédia guarda conectado: ela <b style="color:var(--ink)">aparece sozinha dentro de cada flashcard e de cada questão</b>.</p>
-          <ul class="dentro">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Preview ao passar o mouse</b> num termo — você lê a explicação sem trocar de tela</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Painel lateral, busca por atalho (Cmd/Ctrl+J) e navegação entre conceitos</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>O mesmo conceito da aula é o mesmo do flashcard e o mesmo da questão — um cérebro só</span></li>
-          </ul>
-          <p class="concl">Aprender deixa de ser uma lista de tarefas e vira a teia que a prova vai cobrar.</p>
-        </div>
-        <div class="feat-vis">
-          <div class="mock">
-            <div class="mock-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="tag">Questão · Biologia</span></div>
-            <div class="np-line">…o aumento do <span class="np-term">pico de LH</span> desencadeia a ovulação, enquanto a fase seguinte é regulada pela progesterona…</div>
-            <div class="np-pop">
-              <div class="h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg> Pico de LH</div>
-              <p>Surto de hormônio luteinizante na fase folicular tardia que, ao ultrapassar o limiar, rompe o folículo dominante e libera o ovócito…</p>
-              <div class="more">Clique para abrir o artigo completo →</div>
-            </div>
-          </div>
-        </div>
+  <!-- DOBRA · NEUROPÉDIA -->
+  <section class="sec divider" id="neuropedia">
+    <div class="wrap">
+      <div class="sec-head" style="text-align:center;max-width:none;margin:0 auto 14px">
+        <div class="eyebrow">03 · Neuropédia</div>
+        <h2 class="display-lg" style="margin-top:14px">Você aprende cada conceito <span class="ital">já ligado aos outros</span>.</h2>
+        <p class="lead" style="max-width:66ch;margin:16px auto 0">A Neuropédia abre dentro de cada card e cada questão, e os conceitos se conectam entre si — do jeito que a prova cobra: ligando um ao outro sob pressão.</p>
       </div>
-
-      <!-- 04 CURSOS -->
-      <div class="feat rev">
-        <div class="feat-text">
-          <div class="num">04 · Cursos em trilha</div>
-          <h3>As aulas existem — e sabem onde você está na jornada.</h3>
-          <p class="body">Conteúdo do básico ao avançado, em trilhas organizadas, com a próxima aula sempre a um clique. E, como tudo na NEUROMAX, os conceitos das aulas estão ligados à Neuropédia.</p>
-          <ul class="dentro">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Trilhas em vídeo com <b>progresso salvo aula a aula</b> e materiais para baixar</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Níveis de domínio em estilo guilda</b> — escudo, livro, espada, coroa (D → A)</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Comentários por aula e conceitos linkados à Neuropédia</span></li>
-          </ul>
-        </div>
-        <div class="feat-vis">
-          <div class="mock">
-            <div class="mock-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="tag">Trilha · Bioquímica</span></div>
-            <div class="levels">
-              <div class="lvl done"><span class="badge b-d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div class="info"><div class="t">Nível D · Fundamentos</div><div class="pbar"><i style="width:100%"></i></div></div><span class="gr">D</span></div>
-              <div class="lvl done"><span class="badge b-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V6a2 2 0 0 1 2-2h12v15"/><path d="M6 17h12v3H6a2 2 0 0 1 0-3z"/></svg></span><div class="info"><div class="t">Nível C · Aplicação</div><div class="pbar"><i style="width:100%"></i></div></div><span class="gr">C</span></div>
-              <div class="lvl"><span class="badge b-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m14 2 8 8-3 3-8-8zM3 21l6-2 9-9-4-4-9 9z"/></svg></span><div class="info"><div class="t">Nível B · Aprofundamento</div><div class="pbar"><i style="width:55%"></i></div></div><span class="gr">B</span></div>
-              <div class="lvl"><span class="badge b-a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m2 6 4 12h12l4-12-6 6-4-7-4 7z"/></svg></span><div class="info"><div class="t">Nível A · Maestria</div><div class="pbar"><i style="width:0%"></i></div></div><span class="gr">A</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <p style="text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 18px">Passe o mouse ou toque nos termos destacados</p>
+      <div class="np2" id="nx-np"></div>
     </div>
   </section>
 
@@ -511,7 +403,7 @@
   <section class="sec divider" id="painel">
     <div class="wrap grid2" style="align-items:center">
       <div>
-        <div class="eyebrow">05 · O painel</div>
+        <div class="eyebrow">04 · O painel</div>
         <h2 class="display-lg" style="margin:14px 0">Você abre a plataforma e ela <span class="ital">já sabe o que você tem que fazer hoje</span>.</h2>
         <p class="body" style="margin-bottom:20px">Tudo isso seria mais um peso se você tivesse que administrar. Não tem. O painel faz a contabilidade do seu estudo e te entrega a decisão pronta — você só executa.</p>
         <ul class="dentro">
@@ -606,42 +498,47 @@
       <div class="sec-head" style="text-align:center;margin:0 auto 40px">
         <div class="eyebrow">O acesso</div>
         <h2 class="display-lg" style="margin-top:14px">Um acesso. <span class="ital">Tudo dentro.</span></h2>
-        <p class="lead">Sem pacotes, sem níveis, sem "plano premium". Você escolhe o ciclo até o seu vestibular e entra com a plataforma inteira.</p>
+        <p class="lead">Sem pacotes, sem upsell, sem "plano premium". Você escolhe o ciclo até o seu vestibular e entra com a plataforma inteira — tudo o que viu até aqui, num acesso só.</p>
       </div>
 
       <div class="card">
         <div class="eyebrow" style="margin-bottom:16px">Inclui</div>
         <ul class="includes">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Flashcards FSRS-6</b> — repetição espaçada de última geração</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Neurobank</b> — provas reais, estatística da turma e modo prova antiga</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Neuropédia</b> — a enciclopédia dentro de cada card e questão</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Cursos em trilha</b> — com progresso, materiais e níveis D→A</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Codex</b> — a biblioteca de referência curada</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Painel coach diário</b> — próxima ação, previsão de 7 dias e provas</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Consultoria Setúbal</b> — mentoria individual em prontuário (MED 4P)</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Núcleo Acubbens</b> — mentorias de motivação e ação</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Banco de questões</b> — ENEM, FUVEST, UNESP e outras bancas, comentadas alternativa por alternativa e dentro da repetição espaçada</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Flashcards</b> — cada detalhe que já caiu em vestibular, de volta na hora exata de revisar</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Neuropédia</b> — a enciclopédia que abre dentro de cada card e cada questão</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Painel de estudos</b> — sua próxima ação do dia, a previsão das revisões e a contagem para as provas</span></li>
+        </ul>
+        <div class="eyebrow dim" style="margin:26px 0 14px">+ Bônus inclusos</div>
+        <ul class="includes">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Grupo de alunos</b> <span style="color:var(--ink-soft);font-size:13px">(em breve)</span> — a comunidade de quem está na mesma corrida pela vaga</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Núcleo Acubbens</b> — mentorias em vídeo que te mostram exatamente como estudar em alto desempenho: método, constância e a mentalidade de quem passa</span></li>
         </ul>
       </div>
+
+      <p style="text-align:center;max-width:60ch;margin:32px auto 4px;font-size:17px;color:var(--ink-dim)">O que pesa não é o preço — é o custo de estudar mais um ano sem o método certo. Por cerca de <b style="color:var(--ink)">R$83 por mês</b>, você entra com tudo até a sua prova.</p>
 
       <div class="plans">
         <div class="card plan">
           <div class="eyebrow">Vest 2026</div>
           <div style="font-family:var(--serif);font-size:24px;color:var(--ink);margin-top:8px">Acesso até fevereiro de 2027</div>
-          <div class="price"><div class="old">R$1.000</div><div class="now">R$500</div></div>
+          <div class="price" style="margin-bottom:8px"><div class="old">R$1.000</div><div class="now">R$500</div></div>
+          <div style="font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.03em;margin-bottom:22px">ou <b style="color:var(--ink)">6x de R$83,33</b> sem juros no cartão</div>
           <a href="https://wa.me/5561933001868?text=Oi!%20Quero%20entrar%20na%20NEUROMAX%20%E2%80%94%20Vest%202026." class="btn btn-primary" style="justify-content:center;margin-top:auto">Quero entrar — Vest 2026 →</a>
           <div class="meta">Acesso imediato · Garantia de 7 dias</div>
         </div>
         <div class="card plan">
           <div class="eyebrow">Vest 2027</div>
           <div style="font-family:var(--serif);font-size:24px;color:var(--ink);margin-top:8px">Acesso até fevereiro de 2028</div>
-          <div class="price"><div class="old">R$2.000</div><div class="now">R$1.000</div></div>
+          <div class="price" style="margin-bottom:8px"><div class="old">R$2.000</div><div class="now">R$1.000</div></div>
+          <div style="font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.03em;margin-bottom:22px">ou <b style="color:var(--ink)">12x de R$83,33</b> sem juros no cartão</div>
           <a href="https://wa.me/5561933001868?text=Oi!%20Quero%20entrar%20na%20NEUROMAX%20%E2%80%94%20Vest%202027." class="btn btn-primary" style="justify-content:center;margin-top:auto">Quero entrar — Vest 2027 →</a>
           <div class="meta">Acesso imediato · Garantia de 7 dias</div>
         </div>
       </div>
 
-      <p class="note"><b>Como funciona o acesso:</b> assim que a compra é aprovada, o sistema cria a sua conta e envia um link por e-mail — você entra na hora e define a sua senha no primeiro acesso. Sem espera, sem liberação manual.</p>
-      <p class="note"><b>Garantias:</b> sete dias para testar com os seus próprios erros; se não for para você, o estorno é integral. E se você executar o método e não cruzar a nota de corte no ciclo, o próximo sai pela metade do preço.</p>
+      <p class="note"><b>Como funciona o acesso:</b> assim que o pagamento é aprovado, sua conta é criada e o link chega no seu e-mail — você entra na hora e define a senha no primeiro acesso. Sem espera, sem liberação manual.</p>
+      <p class="note"><b>Duas garantias.</b> Sete dias para usar de verdade — fazer questões, revisar, sentir o método na pele; se não for para você, devolvemos cada centavo. E uma aposta no longo prazo: se você seguir o método e ainda assim não cruzar a nota de corte no ciclo, o próximo sai pela metade.</p>
     </div>
   </section>
 
@@ -709,6 +606,102 @@
     parts.push('<text x="'+(X(30)-6)+'" y="'+(Y(decay(30,1.6))-10)+'" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" fill="#cf7d6b">~3%</text>');
     parts.push('<text x="'+(X(30)-6)+'" y="'+(Y(endRecall)-12)+'" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" fill="#7fae8a">~'+endRecall+'%</text>');
     svg.innerHTML=parts.join('');
+  })();
+  </script>
+  <script>
+  (function(){
+    var NXQ = [{"fonte": "FUVEST", "ano": "2008", "q": "82", "disciplina": "Biologia", "eixo": "Organelas Celulares e Comparação entre Células Procarióticas e Eucarióticas", "enunciado": "<p>As estruturas presentes em uma célula vegetal, porém ausentes em uma bactéria, são:</p>", "alts": {"A": "cloroplastos, lisossomos, núcleo e membrana plasmática.", "B": "vacúolos, cromossomos, lisossomos e ribossomos.", "C": "complexo golgiense, membrana plasmática, mitocôndrias e núcleo.", "D": "cloroplastos, mitocôndrias, núcleo e retículo endoplasmático.", "E": "cloroplastos, complexo golgiense, mitocôndrias e ribossomos."}, "gabarito": "D", "comentarios": {"A": "<p><b>Incorreta.</b> A membrana plasmática está presente tanto em células vegetais quanto em bactérias. Portanto, ela não pode integrar a lista de estruturas <i>ausentes</i> em bactérias. Além disso, lisossomos são raros em células vegetais típicas.</p>", "B": "<p><b>Incorreta.</b> Os ribossomos estão presentes em bactérias (do tipo 70S). Os cromossomos também existem em bactérias (no nucleoide, sem membrana nuclear). Assim, essas estruturas não são exclusivamente ausentes em bactérias.</p>", "C": "<p><b>Incorreta.</b> A membrana plasmática está presente em bactérias, portanto não pode constar na lista de estruturas ausentes nelas. As demais estruturas (complexo golgiense, mitocôndrias e núcleo) de fato estão ausentes em bactérias, mas a inclusão da membrana plasmática invalida a alternativa.</p>", "D": "<p><b>CORRETA.</b> Cloroplastos, mitocôndrias, núcleo (com carioteca) e retículo endoplasmático são estruturas típicas de células eucarióticas vegetais e estão completamente ausentes em bactérias (procariontes), que não possuem organelas membranosas nem núcleo delimitado.</p>", "E": "<p><b>Incorreta.</b> Os ribossomos estão presentes em bactérias (ribossomos 70S). Portanto, ribossomos não podem integrar a lista de estruturas ausentes em bactérias, o que invalida esta alternativa.</p>"}, "resolucao": "<div class=\"dq-h\">Resolução — FUVEST 2008, Questão 82</div><p>A questão pede as estruturas <b>presentes em célula vegetal</b>, mas <b>ausentes em bactéria</b>.</p><div class=\"dq-h\">Passo 1 — Entender as diferenças fundamentais entre célula vegetal e bactéria</div><table class=\"dq-tbl\"><thead><tr><th>Estrutura</th><th>Célula Vegetal</th><th>Bactéria</th></tr></thead><tbody><tr><td>Membrana plasmática</td><td>✅ Presente</td><td>✅ Presente</td></tr><tr><td>Parede celular</td><td>✅ Presente</td><td>✅ Presente</td></tr><tr><td>Ribossomos</td><td>✅ Presente</td><td>✅ Presente</td></tr><tr><td>Núcleo (carioteca)</td><td>✅ Presente</td><td>❌ Ausente (procariótica)</td></tr><tr><td>Mitocôndrias</td><td>✅ Presente</td><td>❌ Ausente</td></tr><tr><td>Cloroplastos</td><td>✅ Presente</td><td>❌ Ausente</td></tr><tr><td>Retículo endoplasmático</td><td>✅ Presente</td><td>❌ Ausente</td></tr><tr><td>Complexo golgiense</td><td>✅ Presente</td><td>❌ Ausente</td></tr><tr><td>Lisossomos</td><td>✅ Presente (em geral, pouco frequentes)</td><td>❌ Ausente</td></tr><tr><td>Vacúolos</td><td>✅ Presente</td><td>❌ Ausente</td></tr><tr><td>Cromossomos</td><td>✅ Presente (no núcleo)</td><td>✅ Presente (nucleoide, sem membrana)</td></tr></tbody></table><div class=\"dq-h\">Passo 2 — Analisar a alternativa D</div><p>A alternativa <b>D</b> lista: <b>cloroplastos, mitocôndrias, núcleo e retículo endoplasmático</b>.</p><ul class=\"dq-ul\"><li><b>Cloroplastos</b>: organela exclusiva de células vegetais (e algas); bactérias <b>não possuem</b> cloroplastos.</li><li><b>Mitocôndrias</b>: organela de células eucarióticas; bactérias <b>não possuem</b> mitocôndrias (realizam respiração na membrana plasmática).</li><li><b>Núcleo</b>: células vegetais são eucarióticas e possuem núcleo com carioteca; bactérias são <b>procarióticas</b> — não possuem núcleo delimitado por membrana.</li><li><b>Retículo endoplasmático</b>: sistema de membranas interno exclusivo de eucariontes; bactérias <b>não possuem</b>.</li></ul><p>Todas as quatro estruturas listadas na alternativa D estão <b>presentes na célula vegetal</b> e <b>ausentes na bactéria</b>. ✅</p><div class=\"dq-h\">Passo 3 — Por que as demais estão erradas?</div><p>As outras alternativas incluem pelo menos uma estrutura que <b>também está presente na bactéria</b> (como ribossomos, membrana plasmática ou cromossomos) ou que <b>não está presente na célula vegetal</b> de forma típica (como lisossomos), tornando-as incorretas.</p>", "takehome": "<p><b>Dica de estudo:</b> Ao comparar células procarióticas e eucarióticas, lembre-se que bactérias <b>não possuem organelas membranosas</b> (mitocôndrias, cloroplastos, retículo endoplasmático, complexo golgiense) nem <b>núcleo delimitado por membrana</b> — mas <b>possuem</b> membrana plasmática e ribossomos (70S)!</p>"}, {"fonte": "ENEM", "ano": "2009", "q": "11", "disciplina": "Biologia", "eixo": "Anatomia e Fisiologia Humana e Animal", "enunciado": "<p>Para que todos os órgãos do corpo humano funcionem em boas condições, é necessário que a temperatura do corpo fique sempre entre 36 ºC e 37 ºC. Para manter-se dentro dessa faixa, em dias de muito calor ou durante intensos exercícios físicos, uma série de mecanismos fisiológicos é acionada.</p><p>Pode-se citar como o principal responsável pela manutenção da temperatura corporal humana o sistema</p>", "alts": {"A": "digestório, pois produz enzimas que atuam na quebra de alimentos calóricos.", "B": "imunológico, pois suas células agem no sangue, diminuindo a condução do calor.", "C": "nervoso, pois promove a sudorese, que permite perda de calor por meio da evaporação da água.", "D": "reprodutor, pois secreta hormônios que alteram a temperatura, principalmente durante a menopausa.", "E": "endócrino, pois fabrica anticorpos que, por sua vez, atuam na variação do diâmetro dos vasos periféricos."}, "gabarito": "C", "comentarios": {"A": "<p>Alternativa A está errada. O sistema digestório produz enzimas digestivas (como amilase, lipase e protease) que atuam na quebra química dos alimentos. Embora a digestão gere calor como subproduto metabólico, o sistema digestório não possui mecanismo de termorregulação ativo. O erro conceitual aqui é confundir metabolismo energético com regulação térmica. Candidatos que associam 'calor' a 'alimentos calóricos' podem ser atraídos por esta alternativa de forma equivocada.</p>", "B": "<p>Alternativa B está errada. O sistema imunológico é composto por células como leucócitos, linfócitos e anticorpos, cujas funções são a defesa do organismo contra agentes patogênicos. Essas células não têm a função de diminuir a condução de calor no sangue. Na verdade, infecções ativam o sistema imunológico e tendem a aumentar a temperatura corporal (febre), não a reduzi-la. O erro conceitual é atribuir função termorregulatória direta ao sistema imunológico.</p>", "C": "<p>Alternativa C está correta. O sistema nervoso, especificamente o hipotálamo, detecta o aumento da temperatura corporal e comanda a sudorese por meio de sinais nervosos enviados às glândulas sudoríparas. O suor liberado na pele sofre evaporação, processo que retira calor da superfície corporal e resfria o organismo. A explicação da alternativa é precisa tanto do ponto de vista anatômico (sistema nervoso como controlador) quanto físico (evaporação da água como mecanismo de perda de calor).</p>", "D": "<p>Alternativa D está errada. O sistema reprodutor não tem função primária na termorregulação. A menopausa é um fenômeno hormonal relacionado ao fim do ciclo reprodutivo feminino, e os famosos 'calorões' dela decorrentes são causados por alterações nos hormônios ovarianos que afetam o hipotálamo — mas isso é uma disfunção pontual, não um mecanismo fisiológico de regulação térmica normal. O erro conceitual é confundir um efeito colateral hormonal específico com um mecanismo geral de termorregulação.</p>", "E": "<p>Alternativa E está errada e apresenta dois erros conceituais sérios. Primeiro, anticorpos são produzidos pelo sistema imunológico (células B/plasmócitos), e não pelo sistema endócrino. Segundo, anticorpos têm função de defesa imunológica (neutralização de antígenos), e não de regular o diâmetro dos vasos sanguíneos. A vasodilatação periférica, de fato um mecanismo de termorregulação, é controlada pelo sistema nervoso autônomo. Candidatos podem ser confundidos por mencionar vasos periféricos, que é um elemento real da termorregulação, mas atribuído ao sistema e ao mecanismo errados.</p>"}, "resolucao": "<p>A questão aborda a termorregulação no corpo humano, que é o conjunto de mecanismos fisiológicos responsáveis por manter a temperatura corporal dentro da faixa de equilíbrio (homeotermia), entre 36°C e 37°C. Em situações de calor excessivo ou exercício físico intenso, o organismo precisa eliminar o excesso de calor produzido ou absorvido pelo ambiente, evitando hipertermia e disfunção dos órgãos.</p><p>O principal sistema envolvido nesses mecanismos de resfriamento é o Sistema Nervoso. Ele atua de forma central e periférica: o hipotálamo, localizado no encéfalo, funciona como o 'termostato' do corpo. Ao detectar elevação da temperatura sanguínea, o hipotálamo envia sinais nervosos para as glândulas sudoríparas, estimulando a produção e liberação de suor — processo chamado de sudorese. Também comanda a vasodilatação periférica, ampliando o diâmetro dos vasos sanguíneos próximos à pele para facilitar a dissipação de calor para o ambiente.</p><p>A sudorese é um mecanismo físico extremamente eficiente: quando o suor (composto principalmente de água) evapora na superfície da pele, ocorre a absorção de calor do corpo para o ambiente, promovendo o resfriamento. Esse processo de perda de calor por evaporação é um dos mais importantes para a termorregulação em mamíferos, incluindo os seres humanos. Tudo isso é coordenado pelo Sistema Nervoso, que detecta a variação de temperatura e aciona as respostas adequadas de forma rápida e precisa.</p><p>Portanto, a alternativa correta é a letra C, pois identifica corretamente o Sistema Nervoso como o responsável por promover a sudorese, explicando adequadamente o mecanismo físico-fisiológico de perda de calor por evaporação da água contida no suor.</p>", "takehome": "<p>Para questões sobre termorregulação, é fundamental saber que o hipotálamo (sistema nervoso) é o centro regulador da temperatura corporal, acionando a sudorese e a vasodilatação periférica como respostas ao calor. A perda de calor por evaporação do suor é um processo físico essencial: a evaporação da água absorve energia térmica da pele, resfriando o organismo. Não confunda os sistemas: o nervoso regula, o imunológico defende e o endócrino secreta hormônios — cada um com funções distintas.</p>"}, {"fonte": "FUVEST", "ano": "2011", "q": "30", "disciplina": "Química", "eixo": "Ligações Químicas e Propriedades dos Compostos", "enunciado": "<p>Um sólido branco apresenta as seguintes propriedades:</p><p>I. É solúvel em água.<br>II. Sua solução aquosa é condutora de corrente elétrica.<br>III. Quando puro, o sólido não conduz corrente elétrica.<br>IV. Quando fundido, o líquido puro resultante não conduz corrente elétrica.</p><p>Considerando essas informações, o sólido em questão pode ser</p>", "alts": {"A": "sulfato de potássio.", "B": "hidróxido de bário.", "C": "platina.", "D": "ácido cis-butenodioico.", "E": "polietileno."}, "gabarito": "D", "comentarios": {"A": "<p>Sulfato de potássio (K2SO4) é um sal iônico que, quando fundido, libera íons K+ e SO4²⁻ livres, conduzindo corrente elétrica no estado líquido. Isso contradiz a propriedade IV. Incorreto.</p>", "B": "<p>Hidróxido de bário [Ba(OH)2] é também uma substância iônica que conduz corrente elétrica quando fundida, pois os íons Ba²⁺ e OH⁻ ficam livres para se mover. Contradiz a propriedade IV. Incorreto.</p>", "C": "<p>Platina (Pt) é um metal e conduz corrente elétrica no estado sólido (e também no estado líquido), contrariando diretamente a propriedade III. Além disso, platina não é solúvel em água. Incorreto.</p>", "D": "<p>Ácido cis-butenodioico (ácido maleico) é um composto molecular, sólido branco, solúvel em água. Em solução aquosa ioniza-se, tornando-a condutora. No estado sólido e fundido, não há íons livres, logo não conduz corrente. Satisfaz todas as quatro propriedades. Correto.</p>", "E": "<p>Polietileno é um polímero apolar, praticamente insolúvel em água e não ioniza em nenhum solvente, portanto não conduz corrente em solução aquosa. Contradiz as propriedades I e II. Incorreto.</p>"}, "resolucao": "<p>A questão pede identificar uma substância que seja sólida branca, solúvel em água, que conduza corrente elétrica em solução aquosa, mas que NÃO conduza corrente elétrica nem no estado sólido nem no estado fundido (líquido puro). As propriedades III e IV são as mais discriminatórias: a substância não conduz no estado sólido nem no estado líquido (fundido), mas conduz em solução aquosa.</p><p>Substâncias iônicas (sais e bases) conduzem corrente elétrica quando fundidas, pois os íons ficam livres para se mover. Já substâncias moleculares que ionizam em água (como ácidos moleculares) não possuem íons livres no estado sólido ou fundido, mas ao se dissolverem em água sofrem ionização, liberando íons e tornando a solução condutora.</p><p>O ácido cis-butenodioico (ácido maleico, C4H4O4) é um ácido orgânico molecular que se apresenta como sólido branco. Sendo um ácido, quando dissolvido em água sofre ionização parcial, gerando íons H+ e o ânion correspondente, tornando a solução condutora de eletricidade. No estado sólido e no estado fundido, não há íons livres, portanto não conduz corrente elétrica. Isso satisfaz todas as quatro propriedades descritas.</p><p>As demais alternativas falham em pelo menos uma das condições: sulfato de potássio e hidróxido de bário são iônicos e conduzem corrente quando fundidos (eliminam propriedade IV); platina é um metal condutor no estado sólido (elimina propriedade III); polietileno não é solúvel em água nem ioniza (elimina propriedades I e II).</p>", "takehome": "<p>O raciocínio-chave está em identificar que a substância é molecular e ácida: não conduz no estado sólido nem fundido (ausência de íons livres), mas ioniza em água, gerando condutividade elétrica em solução — característica típica de ácidos moleculares como o ácido maleico (cis-butenodioico).</p>"}, {"fonte": "ENEM", "ano": "2012", "q": "84", "disciplina": "Física", "eixo": "Física Moderna e Astronomia", "enunciado": "<p>A falta de conhecimento em relação ao que vem a ser um material radioativo e quais os efeitos, consequências e usos da irradiação pode gerar o medo e a tomada de decisões equivocadas, como a apresentada no exemplo a seguir.</p><p>\"Uma companhia aérea negou-se a transportar material médico por este portar um certificado de esterilização por irradiação.\"</p><p>Física na Escola, v. 8, n. 2, 2007 (adaptado).</p><p>A decisão tomada pela companhia é equivocada, pois</p>", "alts": {"A": "o material é incapaz de acumular radiação, não se tornando radioativo por ter sido irradiado.", "B": "a utilização de uma embalagem é suficiente para bloquear a radiação emitida pelo material.", "C": "a contaminação radioativa do material não se prolifera da mesma forma que as infecções por microrganismos.", "D": "o material irradiado emite radiação de intensidade abaixo daquela que ofereceria risco à saúde.", "E": "o intervalo de tempo após a esterilização é suficiente para que o material não emita mais radiação."}, "gabarito": "A", "comentarios": {"A": "<p>CORRETA. A alternativa (A) expressa com precisão o princípio físico correto. Materiais submetidos à esterilização por irradiação não retêm nem acumulam a radiação recebida, pois seus átomos não são convertidos em isótopos radioativos durante o processo. Após a irradiação, o material permanece quimicamente e nuclearmante estável, não emitindo qualquer radiação. Essa é exatamente a justificativa que invalida a preocupação da companhia aérea.</p>", "B": "<p>ERRADA. Esta alternativa apresenta um equívoco de irrelevância: mesmo que uma embalagem pudesse bloquear radiação (o que, aliás, depende do tipo de radiação e da espessura do material), isso não seria o argumento correto para justificar a segurança do transporte. O ponto central não é a contenção da radiação por uma embalagem, mas sim o fato de que o material simplesmente não é radioativo e não emite radiação alguma. A alternativa desvia o foco para uma solução de proteção que nem sequer é necessária.</p>", "C": "<p>ERRADA. Esta alternativa comete um erro de categoria ao comparar contaminação radioativa com infecção por microrganismos. Embora seja verdade que os mecanismos de proliferação são distintos, esse argumento não é o mais adequado para explicar a segurança do material. Além disso, a alternativa sugere implicitamente que há algum tipo de 'contaminação radioativa' no material, o que é falso. O material não está radioativamente contaminado; ele simplesmente não é radioativo.</p>", "D": "<p>ERRADA. Esta alternativa induz ao erro ao sugerir que o material ainda emite radiação, porém em intensidade baixa o suficiente para não oferecer risco. Isso é fisicamente incorreto: o material não emite radiação em quantidade alguma, pois não se tornou radioativo. Afirmar que a intensidade está 'abaixo do risco' implica que há emissão, apenas fraca, o que representa um equívoco conceitual sobre o mecanismo da esterilização por irradiação.</p>", "E": "<p>ERRADA. Esta alternativa também parte de uma premissa incorreta ao sugerir que o material emitia radiação após a esterilização, mas que essa emissão cessou com o passar do tempo (alusão ao conceito de meia-vida). Na realidade, o material nunca emitiu radiação após o processo, pois nunca se tornou radioativo. O decaimento radioativo ao longo do tempo seria relevante para um material genuinamente radioativo, mas não se aplica a este caso.</p>"}, "resolucao": "<p>A questão aborda o conceito de esterilização por irradiação, técnica amplamente utilizada na indústria médica e alimentícia. Nesse processo, materiais são expostos a radiações ionizantes (geralmente raios gama provenientes do Cobalto-60 ou feixes de elétrons acelerados) com o objetivo de eliminar microrganismos como bactérias, fungos e vírus, garantindo a esterilidade do produto. O temor da companhia aérea reflete um equívoco conceitual muito comum: a confusão entre um material que foi irradiado e um material que se tornou radioativo.</p><p>Para compreender o erro da companhia, é fundamental distinguir dois conceitos centrais da física nuclear. Radioatividade é a propriedade de certos núcleos atômicos instáveis de emitir espontaneamente partículas ou radiação eletromagnética. Já a irradiação é simplesmente a exposição de um material a uma fonte de radiação externa. Ao ser irradiado, o material recebe energia da radiação, que destrói o material genético dos microrganismos presentes, mas isso não altera a composição nuclear dos átomos que formam o material médico em si. Para que um material se tornasse radioativo, seria necessário que seus núcleos atômicos fossem transformados em isótopos instáveis, o que não ocorre nas condições utilizadas na esterilização comercial.</p><p>Portanto, o material médico esterilizado por irradiação não acumula radiação e não se torna uma fonte radioativa. Ele não emite radiação após o processo porque simplesmente não possui núcleos radioativos — a radiação utilizada no processo vem de uma fonte externa e, após a exposição, o material fica completamente inerte do ponto de vista radiológico. Isso é análogo a iluminar um objeto com uma lanterna: o objeto iluminado não passa a emitir luz após a lanterna ser apagada. Transportar esse material não oferece qualquer risco radiológico às pessoas no entorno.</p><p>A alternativa correta é a (A), pois ela expressa com precisão o conceito físico central: o material irradiado é incapaz de acumular radiação e, por isso, não se torna radioativo. A negativa da companhia aérea era, portanto, tecnicamente infundada, baseada em um equívoco entre 'material irradiado' e 'material radioativo'.</p>", "takehome": "<p>O conceito central desta questão é a distinção entre 'material irradiado' e 'material radioativo': ser exposto a radiação não torna um objeto uma fonte de radiação. Para que um material se torne radioativo, seus núcleos atômicos precisariam ser transformados em isótopos instáveis, o que não ocorre na esterilização por irradiação. Dominar essa diferença conceitual é essencial para resolver qualquer questão que envolva aplicações práticas da radioatividade no ENEM.</p>"}, {"fonte": "UNESP", "ano": "2010", "q": "68", "disciplina": "Biologia", "eixo": "Anatomia e Fisiologia Humana e Animal", "enunciado": "<p>Paula não toma qualquer contraceptivo e tem um ciclo menstrual regular de 28 dias exatos. Sua última menstruação foi no dia 23 de junho. No dia 06 de julho, Paula manteve uma relação sexual sem o uso de preservativos. No dia 24 de julho, Paula realizou um exame de urina para verificar se havia engravidado. Em função do ocorrido, pode-se dizer que, no dia 06 de julho, Paula</p>", "alts": {"A": "talvez ainda não tivesse ovulado, mas o faria um ou dois dias depois. Considerando que o espermatozoide pode permanecer viável no organismo feminino por cerca de dois dias, há a possibilidade de Paula ter engravidado. O exame de urina poderia confirmar essa hipótese, indicando altos níveis de gonadotrofina coriônica.", "B": "já teria ovulado, o que teria ocorrido cerca de dois dias antes. Contudo, considerando que depois da ovulação o óvulo permanece viável no organismo feminino por cerca de uma semana, há a possibilidade de Paula ter engravidado. O exame de urina poderia confirmar essa hipótese, indicando redução no nível de estrógenos.", "C": "já teria ovulado, o que teria ocorrido há cerca de uma semana. Portanto não estaria grávida, o que poderia ser confirmado pelo exame de urina, que indicaria altos níveis de estrógenos e LH.", "D": "estaria ovulando e, portanto, é quase certo que estaria grávida. Com a implantação do embrião no endométrio, ocorre um aumento na secreção de LH e diminuição nos níveis de gonadotrofina coriônica, o que poderia ser detectado pelo exame de urina já na semana seguinte à nidação.", "E": "ainda não teria ovulado, o que só iria ocorrer dias depois. Portanto, não estaria grávida, o que poderia ser confirmado pelo exame de urina, que indicaria altos níveis de gonadotrofina coriônica."}, "gabarito": "A", "comentarios": {"A": "<p><b>Correta.</b> No dia 06 de julho (13º dia do ciclo), Paula ainda não havia ovulado — a ovulação ocorreria no dia 07 ou 08 de julho. Como os espermatozoides permanecem viáveis por ~2 dias, a fecundação seria possível. O exame de urina do dia 24 de julho poderia detectar altos níveis de <b>hCG (gonadotrofina coriônica)</b>, hormônio produzido pelo embrião após a nidação e marcador clássico dos testes de gravidez.</p>", "B": "<p><b>Incorreta.</b> A ovulação ocorreria no dia 07 de julho, ou seja, Paula <b>ainda não</b> havia ovulado no dia 06 — não \"já teria ovulado dois dias antes\" (o que seria o dia 04). Além disso, o óvulo permanece viável por apenas <b>12 a 24 horas</b> (não uma semana) após a ovulação. Por fim, a gravidez seria confirmada por <b>altos níveis de hCG</b>, e não por redução de estrógenos.</p>", "C": "<p><b>Incorreta.</b> A ovulação não teria ocorrido \"há cerca de uma semana\" (o que seria por volta do dia 29 de junho, apenas o 6º dia do ciclo — fase folicular inicial, muito cedo para ovular). O cálculo correto aponta a ovulação para o 14º dia (07 de julho). Além disso, altos níveis de <b>LH</b> ocorrem no pico pré-ovulatório, não após a ovulação, e a afirmação de que Paula não estaria grávida é incorreta.</p>", "D": "<p><b>Incorreta.</b> Paula não estaria ovulando no dia 06 de julho, mas sim no dia seguinte (07 de julho). Mais grave ainda, a alternativa inverte a lógica hormonal: após a nidação, ocorre <b>aumento</b> de hCG (não de LH) e é justamente o hCG que <b>mantém</b> o corpo lúteo, sustentando os níveis de progesterona. O LH hipofisário, ao contrário, é suprimido durante a gravidez.</p>", "E": "<p><b>Incorreta.</b> A primeira parte está correta (Paula ainda não havia ovulado), mas a conclusão é equivocada: a gravidez <b>é possível</b> porque os espermatozoides sobrevivem por ~2 dias e a ovulação ocorreria logo depois. Além disso, altos níveis de <b>hCG</b> na urina indicariam <b>gravidez confirmada</b>, não ausência dela — a alternativa usa o marcador correto, mas com o sentido invertido.</p>"}, "resolucao": "<div class=\"dq-h\">Resolução — UNESP 2010, Questão 68</div><div class=\"dq-h\">Dados do problema</div><table class=\"dq-tbl\"><thead><tr><th>Informação</th><th>Data</th></tr></thead><tbody><tr><td>Início da última menstruação</td><td>23 de junho</td></tr><tr><td>Relação sexual</td><td>06 de julho</td></tr><tr><td>Exame de urina</td><td>24 de julho</td></tr><tr><td>Duração do ciclo</td><td>28 dias exatos</td></tr></tbody></table><div class=\"dq-h\">Passo 1 — Quando ocorre a ovulação?</div><p>Em um ciclo menstrual regular de <b>28 dias</b>, a ovulação ocorre ao redor do <b>14º dia</b> do ciclo, contado a partir do <b>primeiro dia da menstruação</b>.</p><p> Data da ovulação = 23 de junho + 14 dias = 07 de julho</p><div class=\"dq-h\">Passo 2 — O que estava acontecendo no dia 06 de julho?</div><p>O dia 06 de julho corresponde ao <b>13º dia</b> do ciclo de Paula:</p><p> 06 de julho - 23 de junho = 13 dias ⇒ dia 13 do ciclo</p><p>Portanto, no dia 06 de julho, Paula <b>ainda não havia ovulado</b> — a ovulação estava prevista para o dia seguinte (07 de julho) ou, com pequena variação fisiológica, até dois dias depois.</p><div class=\"dq-h\">Passo 3 — Há possibilidade de gravidez?</div><p>Sim! Dois fatores se combinam para tornar a gravidez possível:</p><p>1. <b>Viabilidade do espermatozoide:</b> os espermatozoides podem permanecer viáveis no trato reprodutivo feminino por <b>até 5 dias</b> (a questão adota ~2 dias como referência). Assim, os espermatozoides depositados no dia 06 de julho ainda estariam vivos quando a ovulação ocorresse no dia 07 (ou até 08) de julho.<br>2. <b>Ovulação iminente:</b> como a ovulação ocorreria 1 a 2 dias depois, o encontro entre espermatozoide e óvulo seria perfeitamente possível.</p><div class=\"dq-h\">Passo 4 — O exame de urina do dia 24 de julho poderia confirmar a gravidez?</div><p>O dia 24 de julho corresponde ao <b>31º dia</b> após o início da menstruação de 23 de junho, ou seja, Paula já estaria com cerca de <b>3 semanas de gestação</b> (contando da fecundação ~07 de julho até 24 de julho = ~17 dias).</p><p>Após a <b>nidação</b> (implantação do embrião no endométrio), o trofoblasto começa a secretar <b>gonadotrofina coriônica humana (hCG)</b>. Esse hormônio:</p><ul class=\"dq-ul\"><li>É detectável na urina poucos dias após a nidação;</li><li>É exatamente o hormônio pesquisado nos <b>testes de gravidez de urina</b>;</li><li>Mantém o <b>corpo lúteo</b> ativo, sustentando a produção de progesterona e impedindo a menstruação.</li></ul><p>Portanto, no dia 24 de julho, o exame de urina poderia indicar <b>altos níveis de gonadotrofina coriônica (hCG)</b>, confirmando a gravidez.</p><div class=\"dq-h\">Conclusão</div><p>A alternativa <b>A</b> está correta em todos os seus pontos:</p><ul class=\"dq-ul\"><li>Paula <b>ainda não havia ovulado</b> no dia 06 de julho (ovulação prevista para o dia 07 ou 08);</li><li>A gravidez é <b>possível</b> pela viabilidade do espermatozoide (~2 dias);</li><li>O exame de urina poderia confirmar a gravidez pela detecção de <b>altos níveis de hCG</b>.</li></ul>", "takehome": "<p><b>Dica de estudo:</b> Memorize os três marcos do ciclo menstrual de 28 dias — menstruação (dia 1), ovulação (dia ~14) e início do novo ciclo (dia 28) — e associe cada fase ao seu hormônio dominante: FSH/estrogênio na fase folicular, pico de LH na ovulação e progesterona na fase lútea; após a nidação, o hCG assume o papel do LH para manter o corpo lúteo.</p>"}];
+    var root = document.getElementById('nx-demo'); if(!root) return;
+    var idx=0, sel=null, revealed=false;
+    function el(h){var d=document.createElement('div');d.innerHTML=h.trim();return d.firstElementChild;}
+    function render(){
+      var q=NXQ[idx], L=Object.keys(q.alts);
+      root.innerHTML='';
+      root.appendChild(el('<div class="dq-top"><div class="dq-tags"><span class="dq-subj">'+q.disciplina+'</span><span class="dq-src">'+q.fonte+' '+q.ano+'</span></div><div class="dq-prog">Quest&atilde;o <b>'+(idx+1)+'</b> / '+NXQ.length+'</div></div>'));
+      root.appendChild(el('<div class="dq-stem">'+q.enunciado+'</div>'));
+      var alts=el('<div class="dq-alts"></div>');
+      L.forEach(function(k){
+        var cls='dq-opt';
+        if(revealed){ cls += (k===q.gabarito?' ok':(k===sel?' bad':' dim')); }
+        else if(k===sel){ cls+=' sel'; }
+        var b=el('<button class="'+cls+'"'+(revealed?' disabled':'')+'><span class="dq-key">'+k+'</span><span>'+q.alts[k]+'</span></button>');
+        if(!revealed){ b.addEventListener('click',function(){ sel=k; render(); }); }
+        alts.appendChild(b);
+      });
+      root.appendChild(alts);
+      var act=el('<div class="dq-actions"></div>');
+      if(!revealed){
+        var sub=el('<button class="dq-submit"'+(sel?'':' disabled')+'>Responder</button>');
+        sub.addEventListener('click',function(){ if(sel){ revealed=true; render(); } });
+        act.appendChild(sub);
+      }
+      var prev=el('<button class="dq-nav dq-prev"'+(idx===0?' disabled':'')+'>&larr; Anterior</button>');
+      prev.addEventListener('click',function(){ if(idx>0){ idx--; sel=null; revealed=false; render(); } });
+      var next=el('<button class="dq-nav dq-next"'+(idx===NXQ.length-1?' disabled':'')+'>Pr&oacute;xima &rarr;</button>');
+      next.addEventListener('click',function(){ if(idx<NXQ.length-1){ idx++; sel=null; revealed=false; render(); } });
+      act.appendChild(prev); act.appendChild(next);
+      root.appendChild(act);
+      if(revealed){
+        var win = (sel===q.gabarito);
+        var rev=el('<div class="dq-reveal"></div>');
+        rev.appendChild(el('<div class="dq-verdict '+(win?'win':'lose')+'">'+(win?'\u2713 Voc&ecirc; acertou.':'\u2717 N&atilde;o foi dessa vez \u2014 veja onde o racioc&iacute;nio desvia.')+'</div>'));
+        rev.appendChild(el('<div class="dq-lbl">Alternativa por alternativa</div>'));
+        L.forEach(function(k){
+          var kc = (k===q.gabarito?'ok':(k===sel?'bad':'no'));
+          rev.appendChild(el('<div class="dq-cmt"><span class="dq-k '+kc+'">'+k+'</span><div>'+(q.comentarios[k]||'')+'</div></div>'));
+        });
+        var tog=el('<button class="dq-res-toggle">− Ocultar resolu&ccedil;&atilde;o te&oacute;rica</button>');
+        var res=el('<div class="dq-res">'+q.resolucao+'</div>');
+        tog.addEventListener('click',function(){
+          if(res.hasAttribute('hidden')){ res.removeAttribute('hidden'); tog.innerHTML='\u2212 Ocultar resolu&ccedil;&atilde;o te&oacute;rica'; }
+          else { res.setAttribute('hidden',''); tog.innerHTML='+ Ver resolu&ccedil;&atilde;o te&oacute;rica'; }
+        });
+        rev.appendChild(tog); rev.appendChild(res);
+        rev.appendChild(el('<div class="dq-take"><div class="dq-take-l">Take-home</div>'+q.takehome+'</div>'));
+        root.appendChild(rev);
+      }
+    }
+    render();
+  })();
+  </script>
+  <script>
+  (function(){
+    var root=document.getElementById('nx-np'); if(!root) return;
+    var NP={
+      'corpo-lúteo':{t:'Corpo lúteo',b:'Estrutura formada pelas células foliculares que sobram após a ovulação. Secreta principalmente {progesterona}, que mantém o {endométrio} espesso e apto à implantação. Sem fecundação, degenera no corpo albicans por volta do 26º dia.'},
+      'progesterona':{t:'Progesterona',b:'Hormônio dominante da fase lútea, secretado pelo {corpo-lúteo}. Mantém o {endométrio} espesso e vascularizado e inibe FSH e LH por retroalimentação negativa, impedindo nova ovulação.'},
+      'endométrio':{t:'Endométrio',b:'Mucosa interna do útero. Espessa-se na fase proliferativa sob ação do estrogênio e, na fase secretora, sob a {progesterona} do {corpo-lúteo} — preparando-se para a implantação do embrião.'}
+    };
+    var TEXT='Na fase lútea do ciclo menstrual, o folículo rompido se reorganiza e forma o {corpo-lúteo}, que secreta {progesterona} e mantém o {endométrio} preparado para a implantação.';
+    var ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>';
+    function terms(s,cls){ return s.replace(/\{([^}]+)\}/g, function(_,k){ var lb=NP[k]?NP[k].t.toLowerCase():k; return '<button class="'+cls+'" data-k="'+k+'">'+lb+'</button>'; }); }
+    root.innerHTML='<div class="np2-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="tag">Questão · Biologia</span></div><div class="np2-text">'+terms(TEXT,'np2-term')+'</div>';
+    var pop=null, cur=null;
+    function open(k){
+      var d=NP[k]; if(!d) return; cur=k;
+      var el=root.querySelector('.np2-term[data-k="'+k+'"]');
+      root.querySelectorAll('.np2-term').forEach(function(x){ x.classList.toggle('active', x.getAttribute('data-k')===k); });
+      if(!pop){ pop=document.createElement('div'); pop.className='np2-pop'; root.appendChild(pop); }
+      pop.innerHTML='<button class="np2-x" aria-label="fechar">×</button><div class="h">'+ICON+' '+d.t+'</div><div class="bd">'+terms(d.b,'np2-link')+'</div><span class="np2-more">Abrir artigo completo →</span>';
+      pop.style.display='block';
+      if(el){
+        var pw=pop.offsetWidth;
+        var pl=Math.max(16, Math.min(el.offsetLeft, root.clientWidth-pw-16));
+        pop.style.left=pl+'px';
+        pop.style.top=(el.offsetTop+el.offsetHeight+9)+'px';
+        var ax=el.offsetLeft+el.offsetWidth/2-pl-6;
+        pop.style.setProperty('--ax', Math.max(10, Math.min(ax, pw-22))+'px');
+      }
+    }
+    root.addEventListener('click', function(e){
+      if(e.target.closest('.np2-x')){ pop.style.display='none'; cur=null; root.querySelectorAll('.np2-term').forEach(function(x){x.classList.remove('active');}); return; }
+      var b=e.target.closest('[data-k]'); if(b) open(b.getAttribute('data-k'));
+    });
+    root.addEventListener('mouseover', function(e){
+      var b=e.target.closest('.np2-term'); if(b && b.getAttribute('data-k')!==cur) open(b.getAttribute('data-k'));
+    });
+    function init(){ open('corpo-lúteo'); }
+    init(); window.addEventListener('load', init);
   })();
   </script>
 </body>
