@@ -94,6 +94,26 @@
     .dentro li b{font-weight:600}
     .concl{margin-top:20px;font-style:italic;font-family:var(--serif);font-size:21px;color:var(--ink);border-left:2px solid var(--primary);padding-left:16px}
 
+    /* DECK COVERAGE — esteiras animadas (questão ↔ conceito) */
+    .deck{margin-top:52px;display:flex;flex-direction:column;gap:18px}
+    .belt{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+    .belt-track{display:flex;gap:16px;width:max-content;animation:deckL 64s linear infinite;will-change:transform}
+    .belt.rev .belt-track{animation-name:deckR}
+    .deck:hover .belt-track{animation-play-state:paused}
+    @keyframes deckL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    @keyframes deckR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+    .dcard{flex:0 0 300px;width:300px;min-height:152px;border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:18px;text-align:left;display:flex;flex-direction:column;gap:10px}
+    .dcard.c{background:linear-gradient(180deg,var(--surface-hi),var(--surface));border-color:rgba(212,165,116,.25)}
+    .dcard .dhead{display:flex;align-items:center;justify-content:space-between}
+    .dcard .dhead .src{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--primary)}
+    .dcard .dhead .kind{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+    .dcard .qtext{font-size:14px;line-height:1.5;color:var(--ink)}
+    .dcard .alts{margin-top:auto;display:flex;gap:7px}
+    .dcard .alts span{width:24px;height:24px;border-radius:50%;border:1px solid var(--border-hi);display:grid;place-items:center;font-family:var(--mono);font-size:11px;color:var(--ink-soft)}
+    .dcard h4{font-family:var(--serif);font-size:21px;color:var(--ink);line-height:1.12;font-weight:600}
+    .dcard .cbody{font-size:13.5px;line-height:1.5;color:var(--ink-dim)}
+    @media(prefers-reduced-motion:reduce){.belt-track{animation-duration:0s}}
+
     /* MOCKUPS */
     .mock{background:linear-gradient(180deg,var(--surface-hi),var(--surface));border:1px solid var(--border-hi);border-radius:18px;padding:20px;box-shadow:0 30px 70px -40px rgba(0,0,0,.8);position:relative}
     .mock-bar{display:flex;align-items:center;gap:6px;margin-bottom:16px}
@@ -365,6 +385,42 @@
       <div class="eyebrow">01 · Flashcards</div>
       <h2 class="display-lg" style="margin:14px auto;max-width:22ch">Se caiu em algum vestibular, está <span class="ital">em nosso baralho</span>.</h2>
       <p class="lead" style="max-width:62ch;margin:0 auto">Os nossos flashcards são construídos para cobrir minuciosamente cada detalhe cobrado no ENEM e nos demais vestibulares.</p>
+    </div>
+
+    <!-- esteiras: questão (cima) ↔ conceito (baixo) -->
+    <div class="deck" aria-hidden="true">
+      <div class="belt">
+        <div class="belt-track">
+          <article class="dcard"><div class="dhead"><span class="src">ENEM 2023</span><span class="kind">Questão</span></div><p class="qtext">A respeito da regulação hormonal do ciclo menstrual, o pico de LH é responsável por…</p><div class="alts"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div></article>
+          <article class="dcard"><div class="dhead"><span class="src">FUVEST 2022</span><span class="kind">Questão</span></div><p class="qtext">Considere a reação de saponificação de um triglicerídeo com hidróxido de sódio…</p><div class="alts"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div></article>
+          <article class="dcard"><div class="dhead"><span class="src">UNICAMP 2024</span><span class="kind">Questão</span></div><p class="qtext">A função f(x) = ln(x² − 4) tem domínio igual a…</p><div class="alts"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div></article>
+          <article class="dcard"><div class="dhead"><span class="src">VUNESP 2023</span><span class="kind">Questão</span></div><p class="qtext">Durante a Revolução Industrial inglesa, o cercamento dos campos resultou em…</p><div class="alts"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div></article>
+          <article class="dcard"><div class="dhead"><span class="src">ENEM 2022</span><span class="kind">Questão</span></div><p class="qtext">A reação de combustão completa do etanol libera CO₂ e H₂O. A massa de CO₂…</p><div class="alts"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div></article>
+          <article class="dcard"><div class="dhead"><span class="src">UNESP 2024</span><span class="kind">Questão</span></div><p class="qtext">Na obra de Machado de Assis, o narrador de Memórias Póstumas caracteriza-se por…</p><div class="alts"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div></article>
+          <article class="dcard"><div class="dhead"><span class="src">ENEM 2023</span><span class="kind">Questão</span></div><p class="qtext">A respeito da regulação hormonal do ciclo menstrual, o pico de LH é responsável por…</p><div class="alts"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div></article>
+          <article class="dcard"><div class="dhead"><span class="src">FUVEST 2022</span><span class="kind">Questão</span></div><p class="qtext">Considere a reação de saponificação de um triglicerídeo com hidróxido de sódio…</p><div class="alts"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div></article>
+          <article class="dcard"><div class="dhead"><span class="src">UNICAMP 2024</span><span class="kind">Questão</span></div><p class="qtext">A função f(x) = ln(x² − 4) tem domínio igual a…</p><div class="alts"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div></article>
+          <article class="dcard"><div class="dhead"><span class="src">VUNESP 2023</span><span class="kind">Questão</span></div><p class="qtext">Durante a Revolução Industrial inglesa, o cercamento dos campos resultou em…</p><div class="alts"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div></article>
+          <article class="dcard"><div class="dhead"><span class="src">ENEM 2022</span><span class="kind">Questão</span></div><p class="qtext">A reação de combustão completa do etanol libera CO₂ e H₂O. A massa de CO₂…</p><div class="alts"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div></article>
+          <article class="dcard"><div class="dhead"><span class="src">UNESP 2024</span><span class="kind">Questão</span></div><p class="qtext">Na obra de Machado de Assis, o narrador de Memórias Póstumas caracteriza-se por…</p><div class="alts"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div></article>
+        </div>
+      </div>
+      <div class="belt rev">
+        <div class="belt-track">
+          <article class="dcard c"><div class="dhead"><span class="src">Flashcard</span><span class="kind">Conceito</span></div><h4>Pico de LH e ovulação</h4><p class="cbody">O surto de hormônio luteinizante na fase folicular tardia desencadeia a ruptura do folículo dominante.</p></article>
+          <article class="dcard c"><div class="dhead"><span class="src">Flashcard</span><span class="kind">Conceito</span></div><h4>Saponificação</h4><p class="cbody">Hidrólise alcalina de éster: triglicerídeo + NaOH → glicerol + sal de ácido graxo (sabão).</p></article>
+          <article class="dcard c"><div class="dhead"><span class="src">Flashcard</span><span class="kind">Conceito</span></div><h4>Domínio de logaritmo</h4><p class="cbody">Para ln(g(x)), exige-se g(x) &gt; 0. Resolva a inequação polinomial associada.</p></article>
+          <article class="dcard c"><div class="dhead"><span class="src">Flashcard</span><span class="kind">Conceito</span></div><h4>Enclosure Acts</h4><p class="cbody">Cercamento dos campos comunais expulsa camponeses e gera mão de obra disponível para fábricas urbanas.</p></article>
+          <article class="dcard c"><div class="dhead"><span class="src">Flashcard</span><span class="kind">Conceito</span></div><h4>Estequiometria de combustão</h4><p class="cbody">C₂H₆O + 3 O₂ → 2 CO₂ + 3 H₂O. Relação molar 1:2 entre etanol e CO₂.</p></article>
+          <article class="dcard c"><div class="dhead"><span class="src">Flashcard</span><span class="kind">Conceito</span></div><h4>Narrador defunto-autor</h4><p class="cbody">Brás Cubas narra do além-túmulo com ironia e cinismo, rompendo com o realismo convencional.</p></article>
+          <article class="dcard c"><div class="dhead"><span class="src">Flashcard</span><span class="kind">Conceito</span></div><h4>Pico de LH e ovulação</h4><p class="cbody">O surto de hormônio luteinizante na fase folicular tardia desencadeia a ruptura do folículo dominante.</p></article>
+          <article class="dcard c"><div class="dhead"><span class="src">Flashcard</span><span class="kind">Conceito</span></div><h4>Saponificação</h4><p class="cbody">Hidrólise alcalina de éster: triglicerídeo + NaOH → glicerol + sal de ácido graxo (sabão).</p></article>
+          <article class="dcard c"><div class="dhead"><span class="src">Flashcard</span><span class="kind">Conceito</span></div><h4>Domínio de logaritmo</h4><p class="cbody">Para ln(g(x)), exige-se g(x) &gt; 0. Resolva a inequação polinomial associada.</p></article>
+          <article class="dcard c"><div class="dhead"><span class="src">Flashcard</span><span class="kind">Conceito</span></div><h4>Enclosure Acts</h4><p class="cbody">Cercamento dos campos comunais expulsa camponeses e gera mão de obra disponível para fábricas urbanas.</p></article>
+          <article class="dcard c"><div class="dhead"><span class="src">Flashcard</span><span class="kind">Conceito</span></div><h4>Estequiometria de combustão</h4><p class="cbody">C₂H₆O + 3 O₂ → 2 CO₂ + 3 H₂O. Relação molar 1:2 entre etanol e CO₂.</p></article>
+          <article class="dcard c"><div class="dhead"><span class="src">Flashcard</span><span class="kind">Conceito</span></div><h4>Narrador defunto-autor</h4><p class="cbody">Brás Cubas narra do além-túmulo com ironia e cinismo, rompendo com o realismo convencional.</p></article>
+        </div>
+      </div>
     </div>
   </section>
 
