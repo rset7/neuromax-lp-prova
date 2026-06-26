@@ -1,0 +1,5 @@
+edit-server.js
+__editor.js
+*.bak
+*.log
+.DS_Store
